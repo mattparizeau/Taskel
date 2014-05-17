@@ -1,2 +1,3 @@
 @echo off
-java -jar taskel.jar %1
+set p=%~dp0
+java -jar "%p%\taskel.jar" %1
