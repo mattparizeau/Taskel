@@ -4,40 +4,25 @@ import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.Ansi.Color;
 
 public class Logger {
-	
-	private String name;
-	
-	public Logger()
-	{
-		this("");
-	}
-	
-	public Logger(String name)
-	{
-		this.name = name;
-	}
-	
+
 	public void log(Level level, String msg)
 	{
-		String name = "";
-		if (!this.name.isEmpty())
-			name = "|" + this.name;
-		String text = "[Taskel" + name + "]-[" + level.name() + "]: " + msg;
-		text = getColor(getColorForLevel(level)) + text;
+		String text = "[" + this.getColor(this.getColorForLevel(level)) + level.name() + this.getColor(Color.WHITE) + "]: " + this.getColor(Color.WHITE) + msg;
 		System.out.println(text);
+		System.out.print(this.getColor(Color.WHITE));
 	}
-	
+
 	public String getColor(Color color)
 	{
 		return Ansi.ansi().fg(color).toString();
 	}
-	
+
 	public Color getColorForLevel(Level level)
 	{
 		switch (level)
 		{
 			case INFO:
-				return Color.WHITE;
+				return Color.GREEN;
 			case WARNING:
 				return Color.YELLOW;
 			case SEVERE:

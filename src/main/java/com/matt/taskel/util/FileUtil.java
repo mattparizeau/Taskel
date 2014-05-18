@@ -11,9 +11,9 @@ import com.matt.taskel.logging.Level;
 import com.matt.taskel.logging.Logger;
 
 public final class FileUtil {
-	
-	private static final Logger logger = new Logger("FileUtil");
-	
+
+	private static final Logger logger = new Logger();
+
 	public static final String readFileToEnd(String file)
 	{
 		InputStream is = FileUtil.class.getResourceAsStream(file);
@@ -32,15 +32,16 @@ public final class FileUtil {
 		}
 		return ret;
 	}
-	
+
 	public static final String readToEnd(InputStream reader)
 	{
 		StringBuilder sb = new StringBuilder();
-		try {
+		try
+		{
 			int c;
 			while ((c = reader.read()) != -1)
 			{
-				sb.append((char)c);
+				sb.append((char) c);
 			}
 		} catch (IOException e)
 		{
@@ -48,7 +49,7 @@ public final class FileUtil {
 		}
 		return sb.toString();
 	}
-	
+
 	public static final void writeToFile(String file, String string)
 	{
 		try
@@ -61,7 +62,7 @@ public final class FileUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static final void write(OutputStream out, String string)
 	{
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
@@ -74,5 +75,5 @@ public final class FileUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
