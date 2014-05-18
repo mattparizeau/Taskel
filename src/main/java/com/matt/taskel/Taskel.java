@@ -1,5 +1,7 @@
 package com.matt.taskel;
 
+import org.fusesource.jansi.AnsiConsole;
+
 import com.matt.taskel.logging.Level;
 import com.matt.taskel.logging.Logger;
 import com.matt.taskel.tasks.Task;
@@ -9,6 +11,7 @@ public class Taskel {
 	
 	public static final void main(String... args)
 	{
+		AnsiConsole.systemInstall();
 		Taskel taskel = new Taskel(args);
 		taskel.process();
 	}
